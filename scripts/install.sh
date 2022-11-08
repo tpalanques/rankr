@@ -15,6 +15,7 @@ function install() {
   system.update
   system.install docker
   system.install docker-ce
+  system.install docker-compose
 }
 
 configure
