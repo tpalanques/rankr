@@ -1,1 +1,6 @@
+# PhpStorm information
 .idea/*
+
+# Vendor libraries not needed in our repository
+storage/composer.lock
+storage/vendor/*
