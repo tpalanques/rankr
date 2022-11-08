@@ -11,6 +11,10 @@ system.cdRootPath() {
   cd "$ROOT_PATH" || exit
 }
 
+system.cleanVendorPath() {
+  rm -rf "${STORAGE_VENDOR_PATH}"/*
+}
+
 system.setOriginalPath() {
   ORIGINAL_PATH=$(pwd)
 }
