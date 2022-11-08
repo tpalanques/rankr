@@ -11,8 +11,12 @@ system.cdRootPath() {
   cd "$ROOT_PATH" || exit
 }
 
+system.cleanVarPath() {
+  rm -rf "${STORAGE_VAR_PATH}"
+}
+
 system.cleanVendorPath() {
-  rm -rf "${STORAGE_VENDOR_PATH}"/*
+  rm -rf "${STORAGE_VENDOR_PATH}"
 }
 
 system.setOriginalPath() {
