@@ -3,4 +3,5 @@
 
 # Vendor libraries not needed in our repository
 storage/composer.lock
+storage/var/*
 storage/vendor/*
