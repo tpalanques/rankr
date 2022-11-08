@@ -1,0 +1,32 @@
+#
+# Builds and runs all docker containers to start rankr
+# @file docker-compose.yml
+
+version: '3.3'
+services:
+  php:
+    build: './system/php'
+    container_name: php
+    networks:
+      - backend
+    restart: always
+    volumes:
+      - ./storage/src/:/var/www/html
+  apache:
+    build: './system/apache'
+    container_name: apache
+    depends_on:
+      - php
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "80:80/tcp"
+      - "443:443/tcp"
+    restart: always
+    volumes:
+      - ./storage/config/apache/:/usr/local/apache2/conf/vhosts
+      - ./storage/src/:/usr/local/apache2/htdocs
+networks:
+  backend:
+  frontend:
