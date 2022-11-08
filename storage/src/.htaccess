@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# DEFAULT RULES
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)/$ /$1 [L,R] # Remove trailing slash
+RewriteRule ^(.*)$ rankr.php [QSA,L] # Redirect to index.php
