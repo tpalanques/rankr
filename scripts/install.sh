@@ -9,14 +9,12 @@ function cleanup() {
 function configure() {
   system.setOriginalPath
 
-  APT_UPDATE="apt-get update"
-  APT_INSTALL="apt-get install -y"
 }
 
 function install() {
-  ${APT_UPDATE}
-  ${APT_INSTALL} docker
-  ${APT_INSTALL} docker-ce
+  system.update
+  system.install docker
+  system.install docker-ce
 }
 
 configure
