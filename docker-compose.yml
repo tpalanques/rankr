@@ -3,15 +3,10 @@
 # @file docker-compose.yml
 
 version: '3.3'
+networks:
+  backend:
+  frontend:
 services:
-  php:
-    build: './system/php'
-    container_name: php
-    networks:
-      - backend
-    restart: always
-    volumes:
-      - ./storage/:/var/www/html
   apache:
     build: './system/apache'
     container_name: apache
@@ -27,6 +22,11 @@ services:
     volumes:
       - ./system/apache/apache.conf:/usr/local/apache2/conf/vhosts/apache.conf
       - ./storage/src/:/usr/local/apache2/htdocs
-networks:
-  backend:
-  frontend:
+  php:
+    build: './system/php'
+    container_name: php
+    networks:
+      - backend
+    restart: always
+    volumes:
+      - ./storage/:/var/www/html
