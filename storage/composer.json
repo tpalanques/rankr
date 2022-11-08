@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Rankr\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "phpstan/phpstan": ">=1.9"
+    }
+}

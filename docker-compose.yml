@@ -11,7 +11,7 @@ services:
       - backend
     restart: always
     volumes:
-      - ./storage/src/:/var/www/html
+      - ./storage/:/var/www/html
   apache:
     build: './system/apache'
     container_name: apache

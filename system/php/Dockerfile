@@ -23,3 +23,7 @@ RUN apk fix && \
     git lfs install
 
 RUN docker-php-ext-install gd zip
+
+CMD sh -c "composer install"
+CMD sh -c "composer update"
+CMD ["php-fpm"]
