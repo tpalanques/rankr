@@ -22,6 +22,15 @@ services:
     volumes:
       - ./system/apache/apache.conf:/usr/local/apache2/conf/vhosts/apache.conf
       - ./storage/src/:/usr/local/apache2/htdocs
+  composer:
+    image: composer:latest
+    container_name: composer
+    depends_on:
+      - php
+    environment:
+      - COMPOSER_CACHE_DIR=/app/var/cache/composer
+    volumes:
+      - ./storage/:/app/
   php:
     build: './system/php'
     container_name: php

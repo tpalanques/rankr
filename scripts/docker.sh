@@ -4,7 +4,13 @@ source system.sh
 
 system.setOriginalPath
 
-function clean(){
+function addDependencies() {
+  docker-compose run composer install
+  docker-compose run composer update
+}
+
+function clean() {
+  system.cleanVarPath
   system.cleanVendorPath
 }
 
@@ -26,6 +32,7 @@ rebuild)
   stop
   clean
   start
+  addDependencies
   ;;
 restart)
   stop
