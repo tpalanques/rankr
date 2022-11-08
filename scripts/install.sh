@@ -1,11 +1,13 @@
 #!/bin/bash
 
+source system.sh
+
 function cleanup() {
-  cd "${ORIGINAL_PWD}" || exit
+  system.cdOriginalPath
 }
 
 function configure() {
-  ORIGINAL_PWD=$(pwd)
+  system.setOriginalPath
 
   APT_UPDATE="apt-get update"
   APT_INSTALL="apt-get install -y"
