@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Rankr\View;
+namespace Rankr\View\Ranking;
 
 use Rankr\View\_Type\ViewWithProperties;
 
-class Ranking extends ViewWithProperties {
+class Absolute extends ViewWithProperties {
 
     /**
      * @return string
