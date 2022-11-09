@@ -1,8 +1,9 @@
 {
     "" : "Home",
     "/" : "Home",
+    "/dump" : "Dump",
     "/home" : "Home",
     "/score/add" : "Score\\Add",
     "/score/set" : "Score\\Set",
-    "/dump" : "Dump"
+    "/ranking/absolute": "Ranking\\Absolute"
 }

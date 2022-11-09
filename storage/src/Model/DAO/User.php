@@ -32,6 +32,13 @@ class User {
     }
 
     /**
+     * @return array
+     */
+    public function getUsers(): array{
+        return array_key_exists(self::TABLE, $_SESSION) ? $_SESSION[self::TABLE] : [];
+    }
+
+    /**
      * @param int $userId
      * @param int $score
      * @return void
