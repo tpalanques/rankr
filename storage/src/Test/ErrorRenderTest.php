@@ -12,8 +12,8 @@ class ErrorRenderTest extends Base {
         $sut = new Error($code, new Config(Error::CONFIG, $this->getBaseConfigPath()));
         $render = $sut->render();
         $this->assertEquals(
-            $render,
             $message,
+            $render,
             'Error not properly rendering'
         );
     }
