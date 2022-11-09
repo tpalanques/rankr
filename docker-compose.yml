@@ -39,3 +39,13 @@ services:
     restart: always
     volumes:
       - ./storage/:/var/www/html
+  phpunit:
+    image: php:fpm-alpine
+    container_name: php_unit
+    depends_on:
+      - composer
+    entrypoint: vendor/bin/phpunit
+    volumes:
+      - ./storage/:/app/
+    working_dir: /app
+
