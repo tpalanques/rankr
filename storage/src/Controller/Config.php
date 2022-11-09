@@ -11,8 +11,8 @@ class Config {
     /**
      * @param $name string name of the file that will be loaded. Extension will be loaded automatically
      */
-    public function __construct(string $name) {
-        $this->path = self::CONFIG_FILE_PATH . rtrim($name, self::CONFIG_FILE_EXTENSION) . self::CONFIG_FILE_EXTENSION;
+    public function __construct(string $name, string $rootPath = '') {
+        $this->path = $rootPath . self::CONFIG_FILE_PATH . rtrim($name, self::CONFIG_FILE_EXTENSION) . self::CONFIG_FILE_EXTENSION;
     }
 
     /**

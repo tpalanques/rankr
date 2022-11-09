@@ -11,9 +11,10 @@ class Error extends ViewableController {
 
     /**
      * @param int $code
+     * @param string $rootConfigPath base path where config is stored
      */
-    public function __construct(int $code) {
-        $statusCodes = (new Config('httpStatusCode'))->get();
+    public function __construct(int $code, string $rootConfigPath = '') {
+        $statusCodes = (new Config('httpStatusCode', $rootConfigPath))->get();
         if (array_key_exists($code, $statusCodes)) {
             parent::__construct(new ErrorView($code, $statusCodes[$code]));
         }
