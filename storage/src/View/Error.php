@@ -2,9 +2,9 @@
 
 namespace Rankr\View;
 
-class Error {
-    private $code;
-    private $message;
+class Error extends View{
+    private int $code;
+    private string $message;
 
     /**
      * @param int $code
@@ -16,7 +16,7 @@ class Error {
     }
 
     /**
-     * @return void
+     * @return string
      */
     public function render(): string {
         return $this->code . ' - ' . $this->message;
