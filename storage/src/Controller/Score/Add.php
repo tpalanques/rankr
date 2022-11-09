@@ -18,12 +18,13 @@ class Add extends ViewableWithProperties {
             self::MANDATORY_PROPERTIES
         );
         $this->add(
-            $this->getProperty('user'),
-            $this->getProperty('score'),
+            (int) $this->getProperty('user'),
+            (int) $this->getProperty('score')
         );
     }
 
-    private function add($user, $score): void {
-        $user = new User($user);
+    private function add(int $userId, int $score): void {
+        $user = new User($userId);
+        $user->addScore($score);
     }
 }

@@ -19,6 +19,10 @@ class User {
         $this->user = $this->userDao->getUserById($userId);
     }
 
+    public function addScore(int $score): void {
+        $this->userDao->setScore($this->getId(), $this->getScore() + $score);
+    }
+
     /**
      * @return int
      */
