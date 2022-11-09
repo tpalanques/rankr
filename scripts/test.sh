@@ -3,7 +3,7 @@
 source docker.sh
 
 function test.run() {
-  docker.run phpunit
+  docker.run phpunit "--colors=always"
 }
 
 test.run
