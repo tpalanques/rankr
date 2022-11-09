@@ -5,8 +5,14 @@ namespace Rankr\Test;
 use Rankr\Controller\Config;
 use Rankr\Controller\Error;
 
-class ErrorRenderTest extends Base {
-    public function testRender(): void {
+/**
+ * @coversRouterClass \Rankr\Controller\Error
+ */
+class ErrorTest extends Base {
+    /**
+     * @covers ::render
+     */
+    public function test_render(): void {
         $code = 404;
         $message = '404 - Not found';
         $sut = new Error($code, new Config(Error::CONFIG, $this->getBaseConfigPath()));
