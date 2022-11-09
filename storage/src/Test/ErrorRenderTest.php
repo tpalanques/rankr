@@ -2,15 +2,14 @@
 
 namespace Rankr\Test;
 
-use PHPUnit\Framework\TestCase;
-use Rankr\View\Error;
+use Rankr\Controller\Error as ErrorController;
 
-class ErrorRenderTest extends TestCase {
+class ErrorRenderTest extends Base {
     public function testRender(): void {
         $code = 404;
         $message = 'Not found';
         $this->assertTrue(true);
-        $sut = new Error($code, $message);
+        $sut = new ErrorController($code, $this->getConfigPath());
         $this->assertEquals(
             $sut->render(),
             $code . ' - ' . $message,
