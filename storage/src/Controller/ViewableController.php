@@ -5,11 +5,14 @@ namespace Rankr\Controller;
 abstract class ViewableController {
     private $view;
 
+    /**
+     * @param $view
+     */
     public function __construct($view) {
         $this->view = $view;
     }
 
     public function render() {
-        return $this->view->render();
+        return (new $this->view)->render();
     }
 }
