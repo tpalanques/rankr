@@ -4,7 +4,7 @@ namespace Rankr\Controller\_Type;
 
 use Rankr\View\_Type\View;
 
-abstract class ViewableWithParameters extends Viewable {
+abstract class ViewableWithProperties extends Viewable {
 
     /**
      * @param string $okView
