@@ -30,7 +30,7 @@ class Router {
         if (!$this->route) {
             return new Error(Error::TYPE_404, $this->errorConfig);
         }
-        $controller = 'Controller\\' . $this->route;
+        $controller = 'Rankr\\Controller\\' . $this->route;
         if (!class_exists($controller)) {
             return new Error(Error::TYPE_501, $this->errorConfig);
         }
