@@ -20,6 +20,10 @@ class Router {
     }
 
     /**
+     * Gets the controller related to a URL based in $this->routeConfig
+     * If no route is found Error controller is returned (with code 404)
+     * If controller related to URL doesn't exist Error controller is returned
+     * (with code 501)
      * @return ViewableController
      */
     public function route(): ViewableController {
