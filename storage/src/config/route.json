@@ -2,6 +2,7 @@
     "" : "Home",
     "/" : "Home",
     "/home" : "Home",
-    "/score/add" : "Score",
-    "/score/set" : "Score"
+    "/score/add" : "Score\\Add",
+    "/score/set" : "Score\\Set",
+    "/dump" : "Dump"
 }
