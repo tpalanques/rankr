@@ -2,6 +2,8 @@
 
 namespace Rankr\View;
 
+use Rankr\View\_Type\View;
+
 class Home extends View {
     /**
      * @return string

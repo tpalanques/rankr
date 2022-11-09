@@ -2,6 +2,7 @@
 
 namespace Rankr\Controller;
 
+use Rankr\Controller\_Type\Viewable;
 use Rankr\View\Error as ErrorView;
 
 class Error extends Viewable {

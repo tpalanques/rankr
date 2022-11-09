@@ -1,16 +1,18 @@
 <?php declare(strict_types=1);
 
-namespace Rankr\Controller;
+namespace Rankr\Controller\_Type;
+
+use Rankr\View\_Type\View;
 
 abstract class ViewableWithParameters extends Viewable {
 
     /**
-     * @param $view
-     * @param $koView
+     * @param string $okView
+     * @param string $koView
      * @param array|null $parameters
      * @param array|null $mandatoryParameters
      */
-    public function __construct($okView, $koView, array $parameters = null, array $mandatoryParameters = null) {
+    public function __construct(string $okView, string $koView, array $parameters = null, array $mandatoryParameters = null) {
         $view = $this->parametersAreSet($parameters, $mandatoryParameters) ? $okView : $koView;
         parent::__construct($view);
     }

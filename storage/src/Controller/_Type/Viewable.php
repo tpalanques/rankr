@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Rankr\Controller;
+namespace Rankr\Controller\_Type;
 
 abstract class Viewable {
     private string $viewClasName;

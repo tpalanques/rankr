@@ -2,6 +2,7 @@
 
 namespace Rankr\Controller;
 
+use Rankr\Controller\_Type\Viewable;
 use Rankr\View\Home as HomeView;
 
 class Home extends Viewable {

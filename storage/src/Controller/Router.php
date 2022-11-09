@@ -2,6 +2,8 @@
 
 namespace Rankr\Controller;
 
+use Rankr\Controller\_Type\Viewable;
+
 class Router {
     const CONFIG = 'route';
     private string|null $route;
