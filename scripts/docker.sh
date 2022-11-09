@@ -4,23 +4,27 @@ source system.sh
 
 system.setOriginalPath
 
-function addDependencies() {
-  docker-compose run composer install
-  docker-compose run composer update
+function docker.addDependencies() {
+  docker.run composer install
+  docker.run composer update
 }
 
-function clean() {
+function docker.clean() {
   system.cleanVarPath
   system.cleanVendorPath
 }
 
-function start() {
+function docker.run() {
+  docker-compose run "$1" "$2"
+}
+
+function docker.start() {
   system.cdRootPath
   docker-compose up --detach --force-recreate --remove-orphans --always-recreate-deps --build
   system.cdOriginalPath
 }
 
-function stop() {
+function docker.stop() {
   system.cdRootPath
   sudo docker-compose down
   system.cdOriginalPath
@@ -29,20 +33,21 @@ function stop() {
 command=$1
 case $command in
 rebuild)
-  stop
-  clean
-  start
-  addDependencies
+  docker.stop
+  docker.clean
+  docker.start
+  docker.addDependencies
+  docker.start
   ;;
 restart)
-  stop
-  start
+  docker.stop
+  docker.start
   ;;
 start)
-  start
+  docker.start
   ;;
 stop)
-  stop
+  docker.stop
   ;;
 *)
   echo "Command not found"
