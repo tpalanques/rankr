@@ -3,6 +3,9 @@
 namespace Rankr\View;
 
 class Home {
+    /**
+     * @return string
+     */
     public function render(): string {
         return "<h1>Welcome to Rankr!</h1>";
     }
