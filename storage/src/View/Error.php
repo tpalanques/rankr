@@ -2,7 +2,7 @@
 
 namespace Rankr\View;
 
-class Error extends View{
+class Error extends View {
     private int $code;
     private string $message;
 
@@ -19,6 +19,6 @@ class Error extends View{
      * @return string
      */
     public function render(): string {
-        return $this->code . ' - ' . $this->message;
+        return "<h1>" . $this->code . ' - ' . $this->message . "</h1>";
     }
 }

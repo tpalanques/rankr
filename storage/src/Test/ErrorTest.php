@@ -14,7 +14,7 @@ class ErrorTest extends Base {
      */
     public function test_render(): void {
         $code = 404;
-        $message = '404 - Not found';
+        $message = '<h1>404 - Not found</h1>';
         $sut = new Error($code, new Config(Error::CONFIG, $this->getBaseConfigPath()));
         $render = $sut->render();
         $this->assertEquals(
