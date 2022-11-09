@@ -2,17 +2,18 @@
 
 namespace Rankr\Test;
 
-use Rankr\Controller\Error as ErrorController;
+use Rankr\Controller\Config;
+use Rankr\Controller\Error;
 
 class ErrorRenderTest extends Base {
     public function testRender(): void {
         $code = 404;
-        $message = 'Not found';
-        $this->assertTrue(true);
-        $sut = new ErrorController($code, $this->getConfigPath());
+        $message = '404 - Not found';
+        $sut = new Error($code, new Config(Error::CONFIG, $this->getBaseConfigPath()));
+        $render = $sut->render();
         $this->assertEquals(
-            $sut->render(),
-            $code . ' - ' . $message,
+            $render,
+            $message,
             'Error not properly rendering'
         );
     }

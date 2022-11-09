@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class Base extends TestCase{
     const CONFIG_PATH = 'src/';
 
-    protected function getConfigPath(): string{
+    protected function getBaseConfigPath(): string{
         return self::CONFIG_PATH;
     }
 }

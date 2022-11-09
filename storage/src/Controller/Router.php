@@ -3,14 +3,18 @@
 namespace Rankr\Controller;
 
 class Router {
-    private string $route;
+    const CONFIG = 'route';
+    private string|null $route;
+    private Config $errorConfig;
 
     /**
      * @param string $url
-     * @param string $rootConfigPath base path where configs are stored
+     * @param Config $routeConfig
+     * @param Config $errorConfig
      */
-    public function __construct(string $url, string $rootConfigPath = '') {
-        $routes = (new Config('route', $rootConfigPath))->get();
+    public function __construct(string $url, Config $routeConfig, Config $errorConfig) {
+        $this->errorConfig = $errorConfig;
+        $routes = $routeConfig->get();
         $url = $this->purgeRoute($url);
         $this->route = array_key_exists($url, $routes) ? $routes[$url] : null;
     }
@@ -20,13 +24,13 @@ class Router {
      */
     public function route(): ViewableController {
         if (!$this->route) {
-            return new Error(Error::ERROR_404);
+            return new Error(Error::TYPE_404, $this->errorConfig);
         }
         $controller = 'Controller\\' . $this->route;
-        if (class_exists($controller)) {
-            return new $controller();
+        if (!class_exists($controller)) {
+            return new Error(Error::TYPE_501, $this->errorConfig);
         }
-        return new Error(Error::ERROR_501);
+        return new $controller();
     }
 
     /**

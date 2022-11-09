@@ -6,15 +6,16 @@ use Rankr\View\Error as ErrorView;
 
 class Error extends ViewableController {
 
-    public const ERROR_404 = 404;
-    public const ERROR_501 = 501;
+    public const CONFIG = 'httpStatusCode';
+    public const TYPE_404 = 404;
+    public const TYPE_501 = 501;
 
     /**
      * @param int $code
-     * @param string $rootConfigPath base path where config is stored
+     * @param Config $config
      */
-    public function __construct(int $code, string $rootConfigPath = '') {
-        $statusCodes = (new Config('httpStatusCode', $rootConfigPath))->get();
+    public function __construct(int $code, Config $config) {
+        $statusCodes = $config->get();
         if (array_key_exists($code, $statusCodes)) {
             parent::__construct(new ErrorView($code, $statusCodes[$code]));
         }
