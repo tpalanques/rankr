@@ -14,14 +14,18 @@ class Router {
         $this->route = array_key_exists($url, $routes) ? $routes[$url] : null;
     }
 
+    /**
+     * @return ViewableController
+     */
     public function route(): ViewableController {
         if (!$this->route) {
-            return new Error(404, 'Page not found');
+            return new Error(Error::ERROR_404);
         }
         $controller = 'Controller\\' . $this->route;
         if (class_exists($controller)) {
             return new $controller();
         }
+        return new Error(Error::ERROR_501);
     }
 
     /**
