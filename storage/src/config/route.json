@@ -1,5 +1,7 @@
 {
     "" : "Home",
     "/" : "Home",
-    "/home" : "Home"
+    "/home" : "Home",
+    "/score/add" : "Score",
+    "/score/set" : "Score"
 }
