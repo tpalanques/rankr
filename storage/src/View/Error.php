@@ -2,23 +2,14 @@
 
 namespace Rankr\View;
 
-class Error extends View {
-    private int $code;
-    private string $message;
+use Rankr\View\_Type\ViewWithProperties;
 
-    /**
-     * @param array $parameters
-     */
-    public function __construct(array $parameters) {
-        //int $code, string $message todo check what needs to be done in here
-        $this->code = $parameters['code'];
-        $this->message = $parameters['message'];
-    }
+class Error extends ViewWithProperties {
 
     /**
      * @return string
      */
     public function render(): string {
-        return "<h1>" . $this->code . ' - ' . $this->message . "</h1>";
+        return "<h1>" . $this->getProperty('code') . ' - ' . $this->getProperty('message') . "</h1>";
     }
 }

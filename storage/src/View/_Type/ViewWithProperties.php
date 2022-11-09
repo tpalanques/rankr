@@ -1,15 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Rankr\View;
+namespace Rankr\View\_Type;
 
-abstract class View {
+abstract class ViewWithProperties extends View {
     private array $properties;
 
-    /**
-     * @param array $properties
-     */
-    public function __construct(array $properties = []) {
+    public function __construct($properties) {
         $this->properties = $properties;
+        parent::__construct();
     }
 
     /**
@@ -17,7 +15,7 @@ abstract class View {
      * @return mixed|null
      */
     protected function getProperty(string $propertyName) {
-        return array_key_exists($propertyName,$this->properties) ? $this->properties[$propertyName] : null;
+        return array_key_exists($propertyName, $this->properties) ? $this->properties[$propertyName] : null;
     }
 
     /**
@@ -26,7 +24,4 @@ abstract class View {
     protected function getProperties(): array {
         return $this->properties;
     }
-
-    abstract public function render();
-
 }

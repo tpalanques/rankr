@@ -2,9 +2,9 @@
 
 namespace Rankr\View\Score;
 
-use Rankr\View\View;
+use Rankr\View\_Type\ViewWithProperties;
 
-class SuccessFull extends View {
+class SuccessFull extends ViewWithProperties {
     /**
      * @return string
      */
