@@ -3,6 +3,7 @@
 namespace Rankr\Controller\Score;
 
 use Rankr\Controller\_Type\ViewableWithProperties;
+use Rankr\Model\User;
 use Rankr\View\Score\SuccessFull;
 use Rankr\View\Score\Error;
 
@@ -16,5 +17,13 @@ class Set extends ViewableWithProperties {
             $properties,
             self::MANDATORY_PROPERTIES
         );
+        $this->set(
+            (int) $this->getProperty('user'),
+            (int) $this->getProperty('score')
+        );
+    }
+    private function set(int $userId, int $score): void {
+        $user = new User($userId);
+        $user->setScore($score);
     }
 }
