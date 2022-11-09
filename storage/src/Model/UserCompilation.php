@@ -13,6 +13,9 @@ class UserCompilation {
         $this->users = $this->userDao->getUsers();
     }
 
+    /**
+     * @return array
+     */
     public function getOrdered(): array {
         array_multisort($this->users, SORT_DESC, array_column($this->users,'score'));
         return $this->users;
