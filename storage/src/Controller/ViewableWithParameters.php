@@ -2,7 +2,7 @@
 
 namespace Rankr\Controller;
 
-abstract class ViewableControllerWithParameters extends ViewableController {
+abstract class ViewableWithParameters extends Viewable {
 
     /**
      * @param $view

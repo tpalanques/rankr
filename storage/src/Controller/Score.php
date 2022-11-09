@@ -5,7 +5,7 @@ namespace Rankr\Controller;
 use Rankr\View\Score\SuccessFull;
 use Rankr\View\Score\Error;
 
-class Score extends ViewableControllerWithParameters {
+class Score extends ViewableWithParameters {
     const MANDATORY_PARAMETERS = ['score', 'user'];
     private $score;
     private $user;

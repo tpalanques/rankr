@@ -7,12 +7,12 @@ class Error extends View {
     private string $message;
 
     /**
-     * @param int $code
-     * @param string $message
+     * @param array $parameters
      */
-    public function __construct(int $code, string $message) {
-        $this->code = $code;
-        $this->message = $message;
+    public function __construct(array $parameters) {
+        //int $code, string $message todo check what needs to be done in here
+        $this->code = $parameters['code'];
+        $this->message = $parameters['message'];
     }
 
     /**

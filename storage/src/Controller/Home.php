@@ -4,8 +4,8 @@ namespace Rankr\Controller;
 
 use Rankr\View\Home as HomeView;
 
-class Home extends ViewableController {
+class Home extends Viewable {
     public function __construct() {
-        parent::__construct(new HomeView());
+        parent::__construct(HomeView::class);
     }
 }

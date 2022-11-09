@@ -3,9 +3,7 @@
 namespace Rankr\Test;
 
 use Rankr\Controller\Config;
-use Rankr\Controller\Error;
 use Rankr\Controller\Router;
-use Rankr\Controller\ViewableController;
 
 /**
  * @coversRouterClass \Rankr\Controller\Router

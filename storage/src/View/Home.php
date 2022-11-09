@@ -2,7 +2,7 @@
 
 namespace Rankr\View;
 
-class Home {
+class Home extends View {
     /**
      * @return string
      */

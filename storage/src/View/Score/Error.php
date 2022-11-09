@@ -2,7 +2,9 @@
 
 namespace Rankr\View\Score;
 
-class Error {
+use Rankr\View\View;
+
+class Error extends View {
     /**
      * @return string
      */

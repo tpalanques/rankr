@@ -24,9 +24,9 @@ class Router {
      * If no route is found Error controller is returned (with code 404)
      * If controller related to URL doesn't exist Error controller is returned
      * (with code 501)
-     * @return ViewableController
+     * @return Viewable
      */
-    public function route(): ViewableController {
+    public function route(): Viewable {
         if (!$this->route) {
             return new Error(Error::TYPE_404, $this->errorConfig);
         }

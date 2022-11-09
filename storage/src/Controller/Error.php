@@ -4,7 +4,7 @@ namespace Rankr\Controller;
 
 use Rankr\View\Error as ErrorView;
 
-class Error extends ViewableController {
+class Error extends Viewable {
 
     public const CONFIG = 'httpStatusCode';
     public const TYPE_404 = 404;
@@ -17,7 +17,9 @@ class Error extends ViewableController {
     public function __construct(int $code, Config $config) {
         $statusCodes = $config->get();
         if (array_key_exists($code, $statusCodes)) {
-            parent::__construct(new ErrorView($code, $statusCodes[$code]));
+            $this->saveViewProperty('code', $code);
+            $this->saveViewProperty('message', $statusCodes[$code]);
+            parent::__construct(ErrorView::class);
         }
     }
 }
