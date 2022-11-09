@@ -2,22 +2,22 @@
 
 source system.sh
 
-function cleanup() {
+function install.cleanup() {
   system.cdOriginalPath
 }
 
-function configure() {
+function install.configure() {
   system.setOriginalPath
 
 }
 
-function install() {
+function install.install() {
   system.update
   system.install docker
   system.install docker-ce
   system.install docker-compose
 }
 
-configure
-install
-cleanup
+install.configure
+install.install
+install.cleanup
