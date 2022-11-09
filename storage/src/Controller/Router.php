@@ -34,7 +34,7 @@ class Router {
         if (!class_exists($controller)) {
             return new Error(Error::TYPE_501, $this->errorConfig);
         }
-        return new $controller();
+        return new $controller($_GET);
     }
 
     /**
@@ -43,6 +43,6 @@ class Router {
      * @return string
      */
     private function purgeRoute(string $url): string {
-        return rtrim($url, '/');
+        return (string) strtok(rtrim($url, '/'), '?');
     }
 }
