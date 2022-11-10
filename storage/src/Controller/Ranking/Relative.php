@@ -17,18 +17,19 @@ class Relative extends ViewableWithProperties {
             $properties,
             self::MANDATORY_PROPERTIES
         );
+        $ranking = $this->getRanking(
+            (int) $this->getProperty('position')
+        );
         $this->saveViewProperty(
             'ranking',
-            $this->getRanking(
-                (int) $this->getProperty('position')
-            )
+            $ranking
         );
         $this->setViewStatus(true);
     }
 
     private function getRanking(int $position): array {
         $users = (new UserCompilation())->getOrdered();
-        return array_key_exists($position, $users) ? $users[$position] : [];
+        return array_key_exists($position-1, $users) ? $users[$position-1] : [];
     }
 
 }
