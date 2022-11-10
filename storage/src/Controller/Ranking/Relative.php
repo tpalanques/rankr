@@ -27,7 +27,7 @@ class Relative extends ViewableWithProperties {
 
     private function getRanking(int $position): array {
         $users = (new UserCompilation())->getOrdered();
-        return $users[$position];
+        return array_key_exists($position,$users) ? $users[$position] : [];
     }
 
 }
