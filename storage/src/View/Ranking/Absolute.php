@@ -10,7 +10,15 @@ class Absolute extends ViewWithProperties {
      * @return string
      */
     public function render(): string {
-        r($this->getProperty('ranking'));
-        return '';
+        if ($this->getResponseStatus()) {
+            return json_encode([
+                'error' => false,
+                'msg' => $this->getProperty('ranking')
+            ]);
+        }
+        return json_encode([
+            'error'=> true,
+            'msg' => 'We found some error :('
+        ]);
     }
 }
