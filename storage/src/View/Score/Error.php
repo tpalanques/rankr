@@ -9,6 +9,9 @@ class Error extends ViewWithProperties {
      * @return string
      */
     public function render(): string {
-        return "<h1>Can't score, some parameters are missing</h1>";
+        return json_encode([
+            'error'=> true,
+            'msg' => 'Missing parameters'
+        ]);
     }
 }
