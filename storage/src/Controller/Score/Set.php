@@ -21,6 +21,7 @@ class Set extends ViewableWithProperties {
             (int) $this->getProperty('user'),
             (int) $this->getProperty('score')
         );
+        $this->setViewStatus(true);
     }
     private function set(int $userId, int $score): void {
         $user = new User($userId);
