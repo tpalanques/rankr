@@ -17,19 +17,32 @@ class Relative extends ViewableWithProperties {
             $properties,
             self::MANDATORY_PROPERTIES
         );
-        $ranking = $this->getRanking(
-            (int) $this->getProperty('position')
-        );
+        $ranking = (new UserCompilation())->getOrdered();
+        $position = (int) $this->getProperty('position');
+        $round = (int) $this->getProperty('round');
         $this->saveViewProperty(
             'ranking',
-            $ranking
+            $this->filter($ranking, $position, $round)
         );
         $this->setViewStatus(true);
     }
 
-    private function getRanking(int $position): array {
-        $users = (new UserCompilation())->getOrdered();
-        return array_key_exists($position-1, $users) ? $users[$position-1] : [];
-    }
+    /**
+     * @param array $users
+     * @param $position
+     * @param $round
+     * @return array
+     */
+    private function filter(array $users, $position, $round): array {
+        $filteredUsers = [];
+        $startPosition = $position - $round;
+        $endPosition = $position + $round;
 
+        for($i = $startPosition; $i <= $endPosition; $i++){
+            if(array_key_exists($i,$users)){
+                $filteredUsers[] = $users[$i];
+            }
+        }
+        return $filteredUsers;
+    }
 }
