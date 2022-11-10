@@ -10,7 +10,9 @@ class Dump extends ViewWithProperties {
      * @return string
      */
     public function render(): string {
-        r($this->getProperty('db'));
-        return '';
+        if($this->getResponseStatus()){
+            return json_encode($this->getProperty('db'));
+        }
+        return json_encode([]);
     }
 }

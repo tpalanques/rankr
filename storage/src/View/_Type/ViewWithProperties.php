@@ -5,9 +5,9 @@ namespace Rankr\View\_Type;
 abstract class ViewWithProperties extends View {
     private array $properties;
 
-    public function __construct($properties) {
+    public function __construct(bool $status, $properties) {
         $this->properties = $properties;
-        parent::__construct();
+        parent::__construct($status);
     }
 
     /**

@@ -15,7 +15,7 @@ abstract class ViewableWithProperties extends Viewable {
     public function __construct(string $okView, string $koView, array $properties = null, array $mandatoryProperties = null) {
         $this->properties = $properties;
         $view = $this->propertiesSet($properties, $mandatoryProperties) ? $okView : $koView;
-        parent::__construct($view);
+        parent::__construct($view, false);
     }
 
     /**

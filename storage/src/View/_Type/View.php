@@ -3,8 +3,18 @@
 namespace Rankr\View\_Type;
 
 abstract class View {
-    public function __construct() {
+    private bool $responseStatus;
+
+    /**
+     * @param $responseStatus
+     */
+    public function __construct($responseStatus) {
+        $this->responseStatus = $responseStatus;
     }
 
     abstract public function render();
+
+    protected function getResponseStatus(): bool{
+        return $this->responseStatus;
+    }
 }
