@@ -82,7 +82,7 @@ Gets the absolute ranking
 ## 4.4 [GET] - ranking/relative?position=position
 Gets the ranking in the desired position
 
-# 5 Development tools
+# 5 Development API calls
 Some extra API calls have been enabled to easy developing
 
 ## 5.2 home
@@ -92,3 +92,22 @@ Just checks services are running properly
 ## 5.1 [GET] - dump
 
 Prints database content 
+
+# 6 Test
+
+Rankr includes some test tools to check funcionality and code quality. Both
+tools are run in the scripts folder so you need to go there:
+
+```user@server# cd scripts```
+
+## 6.1. Phpstan
+Checks code quality. Currently Rankr is level 5 compliant. Level can be changed
+in the `phpstan.neon` file. To execute the test just type:
+
+```user@server:~/scripts# . tests.sh phpstan```
+
+## 6.2 Phpunit
+Some functionalities are covered by Phpunit. To avoid regressions this test should
+run with no errors before submitting any code.
+
+```user@server:~/scripts# . tests.sh phpunit```
