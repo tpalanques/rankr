@@ -68,7 +68,12 @@ It's just stops and starts as explained before.
 
 # 4 API Documentation
 
-By now no authentication is required
+By now no authentication is required. All responses are JSON formatted and 
+include 2 parameters:
+
+* **error:** true|false stating if Rankr found any problem processing the request
+* **msg:** mixed this can contain either information (array formatted) or a text
+message when suitable.
 
 ## 4.1 [GET] - score/add?user=userId&score=score
 Adds `score` points to user with `userId`
