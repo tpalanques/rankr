@@ -84,8 +84,9 @@ Sets `score` points to user with `userId`
 ## 4.3 [GET] - ranking/absolute
 Gets the absolute ranking
 
-## 4.4 [GET] - ranking/relative?position=position
-Gets the ranking in the desired position
+## 4.4 [GET] - ranking/relative?position=position[&round=round]
+Gets the ranking in the desired position. This call also allows an optional
+parameter `round` to get surrounding users.
 
 # 5 Development API calls
 Some extra API calls have been enabled to easy developing
