@@ -21,6 +21,7 @@ class Add extends ViewableWithProperties {
             (int) $this->getProperty('user'),
             (int) $this->getProperty('score')
         );
+        $this->setViewStatus(true);
     }
 
     private function add(int $userId, int $score): void {
