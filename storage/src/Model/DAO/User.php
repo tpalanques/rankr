@@ -12,7 +12,6 @@ class User {
     }
 
     public function addUser(int $userId): void {
-        r('userAdded: ' . $userId);
         $_SESSION[self::TABLE][$userId] = [
             'id' => $userId,
             'score' => 0
