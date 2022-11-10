@@ -4,8 +4,8 @@ namespace Rankr\Controller\Score;
 
 use Rankr\Controller\_Type\ViewableWithProperties;
 use Rankr\Model\User;
+use Rankr\View\Error\MissingParameters;
 use Rankr\View\Score\SuccessFull;
-use Rankr\View\Score\Error;
 
 class Add extends ViewableWithProperties {
     const MANDATORY_PROPERTIES = ['score', 'user'];
@@ -13,7 +13,7 @@ class Add extends ViewableWithProperties {
     public function __construct($properties) {
         parent::__construct(
             SuccessFull::class,
-            Error::class,
+            MissingParameters::class,
             $properties,
             self::MANDATORY_PROPERTIES
         );

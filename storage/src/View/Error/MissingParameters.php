@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Rankr\View\Score;
+namespace Rankr\View\Error;
 
 use Rankr\View\_Type\ViewWithProperties;
 
-class Error extends ViewWithProperties {
+class MissingParameters extends ViewWithProperties {
     /**
      * @return string
      */

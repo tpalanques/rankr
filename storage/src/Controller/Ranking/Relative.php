@@ -4,8 +4,8 @@ namespace Rankr\Controller\Ranking;
 
 use Rankr\Controller\_Type\ViewableWithProperties;
 use Rankr\Model\UserCompilation;
+use Rankr\View\Error\MissingParameters;
 use Rankr\View\Ranking\Relative as RelativeView;
-use Rankr\View\Ranking\Error;
 
 class Relative extends ViewableWithProperties {
     const MANDATORY_PROPERTIES = ['position'];
@@ -13,7 +13,7 @@ class Relative extends ViewableWithProperties {
     public function __construct($properties) {
         parent::__construct(
             RelativeView::class,
-            Error::class,
+            MissingParameters::class,
             $properties,
             self::MANDATORY_PROPERTIES
         );
