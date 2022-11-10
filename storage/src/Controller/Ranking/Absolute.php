@@ -4,11 +4,11 @@ namespace Rankr\Controller\Ranking;
 
 use Rankr\Controller\_Type\Viewable;
 use Rankr\Model\UserCompilation;
-use Rankr\View\Ranking\Absolute as AbsoluteView;
+use Rankr\View\Ranking;
 
 class Absolute extends Viewable {
     public function __construct() {
-        parent::__construct(AbsoluteView::class);
+        parent::__construct(Ranking::class);
         $this->saveViewProperty('ranking', $this->getRanking());
     }
 

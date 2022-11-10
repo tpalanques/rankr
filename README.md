@@ -111,3 +111,13 @@ Some functionalities are covered by Phpunit. To avoid regressions this test shou
 run with no errors before submitting any code.
 
 ```user@server:~/scripts# . tests.sh phpunit```
+
+# Roadmap
+
+* **[FEATURE]** Write responses in json format
+* **[SECURITY]** Add missing unit tests for current features
+* **[FEATURE]** Add relative ranking surroundings
+* **[SECURITY]** Add integration tests
+* **[SECURITY]** Move from $_GET to $_POST for parameters
+* **[PROJECT]** Develop CD/CI cycle
+* **[FEATURE]** Add cache for web service
