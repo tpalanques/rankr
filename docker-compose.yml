@@ -39,6 +39,11 @@ services:
     restart: always
     volumes:
       - ./storage/:/var/www/html
+  phpstan:
+    image: ghcr.io/phpstan/phpstan
+    container_name: phpstan
+    volumes:
+      - ./storage/:/app/
   phpunit:
     image: php:fpm-alpine
     container_name: php_unit
