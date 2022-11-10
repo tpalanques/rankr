@@ -25,7 +25,7 @@ class User {
 
     /**
      * @param int $userId
-     * @return mixed|null
+     * @return array|null
      */
     public function getUserById(int $userId): ?array {
         return array_key_exists($userId, $_SESSION[self::TABLE]) ? $_SESSION[self::TABLE][$userId] : null;
@@ -34,7 +34,7 @@ class User {
     /**
      * @return array
      */
-    public function getUsers(): array{
+    public function getUsers(): array {
         return array_key_exists(self::TABLE, $_SESSION) ? $_SESSION[self::TABLE] : [];
     }
 
