@@ -114,7 +114,6 @@ run with no errors before submitting any code.
 
 # Roadmap
 
-* **[FEATURE]** Write responses in json format
 * **[SECURITY]** Add missing unit tests for current features
 * **[FEATURE]** Add relative ranking surroundings
 * **[SECURITY]** Add integration tests
